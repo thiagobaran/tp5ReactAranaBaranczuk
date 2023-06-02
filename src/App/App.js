@@ -6,11 +6,48 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  const [citas, setCitas] = useState([]);
+  let contador=0
+  let id=contador
+  let mascota=''
+  let dueño=''
+  let fecha=''
+  let hora=''
+  let sintomas=''
 
+  const [citas, setCitas] = useState([
+    {
+      id:contador+1,
+      mascota:'Nina',
+      dueño:'Martin',
+      fecha:'2021-08-05',
+      hora:'08:20',
+      sintomas:'Le duele la pierna'
+    },
+      
+    {
+      id:contador+1,
+      mascota:'Sifon',
+      dueño:'Flecha',
+      fecha:'2023-08-05',
+      hora:'09:24',
+      sintomas:'Duerme mucho'
+    },
+    {
+      id:contador+1,
+      mascota:'Floki',
+      dueño:'Ari',
+      fecha:'2023-08-05',
+      hora:'16:15',
+      sintomas:'No está comiendo'
+    }
+  ]);
+  
   const agregarCita = (citaAhora) => {
+    console.log(citaAhora)
     const agregar = [...citas,citaAhora]
     setCitas(agregar)
+    console.log(citas)
+  
   }
 
   return (
@@ -25,12 +62,10 @@ function App() {
             </div>
             <div class="one-half column">
             <SubTitulos tituloH2='Administra tus citas'/>
-            {citas.map(({nombre,dueno,fecha,hora,sintomas})=>(
-              <Card mascota={nombre} dueño={dueno} fecha={fecha} hora={hora} sintomas={sintomas}></Card>
+
+            {citas.map(({citas})=>(
+              <Card mascota={citas.mascota} dueño={citas.dueño} fecha={citas.fecha} hora={citas.hora} sintomas={citas.sintomas}></Card>
             ))}
-            <Card citas={citas} setCitas={setCitas} mascota='Nina' dueño='Martin' fecha='2021-08-05' hora='08:20' sintomas='Le duele la pierna'/>
-            <Card citas={citas} setCitas={setCitas} mascota='Sifon' dueño='Flecha' fecha='2023-08-05' hora='09:24' sintomas='Duerme mucho'/>
-            <Card citas={citas} setCitas={setCitas} mascota='Floki' dueño='Ari' fecha='2023-08-05' hora='16:15' sintomas='No está comiendo'/>
             
             </div>
       </div>

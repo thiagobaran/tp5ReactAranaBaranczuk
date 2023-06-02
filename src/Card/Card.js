@@ -1,13 +1,14 @@
 import './Card.css';
 
-function Card({mascota,dueño,fecha,hora,sintomas}) {
+function Card({citas}) {
   return (
     <div class="cita">
-        <p>Mascota: <span>{mascota}</span></p>
-        <p>Dueño: <span>{dueño}</span></p>
-        <p>Fecha: <span>{fecha}</span></p>
-        <p>Hora: <span>{hora}</span></p>
-        <p>Sintomas: <span>{sintomas}</span></p><button class="button elimnar u-full-width">Eliminar ×</button>
+        <p>Mascota: <span>{citas.mascota}</span></p>
+        <p>Dueño: <span>{citas.dueño}</span></p>
+        <p>Fecha: <span>{citas.fecha}</span></p>
+        <p>Hora: <span>{citas.hora}</span></p>
+        <p>Sintomas: <span>{citas.sintomas}</span></p>
+        <button class="button elimnar u-full-width">Eliminar ×</button>
     </div>
   );
 }

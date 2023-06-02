@@ -3,14 +3,14 @@ import './Formulario.css';
 
 const Formulario = ({agregarCita})=>{
 
-    const [nombre,setNombre]=useState('');
-    const [dueno,setDueno]=useState('');
+    const [mascota,setMascota]=useState('');
+    const [dueño,setDueno]=useState('');
     const [fecha,setFecha]=useState('');
     const [hora,setHora]=useState('');
     const [sintomas,setSintomas]=useState('');
 
-    const NombreOnChange = e => {
-        setNombre(e.target.value)
+    const MascotaOnChange = e => {
+        setMascota(e.target.value)
     }
     const DuenoOnChange = e => {
         setDueno(e.target.value)
@@ -24,19 +24,17 @@ const Formulario = ({agregarCita})=>{
     const SintomasOnChange = e => {
         setSintomas(e.target.value)
     }
-
     const ButtonCita = e=>{
         e.preventDefault();
-        console.log('listo')
         const citaNueva={
-        nombre:nombre,
-        dueno:dueno,
+        mascota:mascota,
+        dueño:dueño,
         fecha:fecha,
         hora:hora,
         sintomas:sintomas,
         }
         agregarCita(citaNueva);
-        setNombre('');
+        setMascota('');
         setDueno('');
         setFecha('');
         setHora('');
@@ -47,11 +45,12 @@ const Formulario = ({agregarCita})=>{
     return(
        <form onSubmit={ButtonCita}>
         
+
         <label>Nombre Mascota</label>
-        <input type="text" name="mascota" class="u-full-width" placeholder="Nombre Mascota" value={nombre} onChange={NombreOnChange}/>
+        <input type="text" name="mascota" class="u-full-width" placeholder="Nombre Mascota" value={mascota} onChange={MascotaOnChange}/>
 
         <label>Nombre Dueño</label>
-        <input type="text" name="propietario" class="u-full-width" placeholder="Nombre dueño de la mascota"  value={dueno} onChange={DuenoOnChange}/>
+        <input type="text" name="propietario" class="u-full-width" placeholder="Nombre dueño de la mascota"  value={dueño} onChange={DuenoOnChange}/>
 
         <label>Fecha</label>
         <input type="date" name="fecha" class="u-full-width" value={fecha} onChange={FechaOnChange}/>
