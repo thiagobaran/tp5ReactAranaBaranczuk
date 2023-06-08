@@ -4,7 +4,7 @@ import './Formulario.css';
 const Formulario = ({agregarCita})=>{
 
     const [mascota,setMascota]=useState('');
-    const [dueño,setDueno]=useState('');
+    const [duenio,setDueno]=useState('');
     const [fecha,setFecha]=useState('');
     const [hora,setHora]=useState('');
     const [sintomas,setSintomas]=useState('');
@@ -28,7 +28,7 @@ const Formulario = ({agregarCita})=>{
         e.preventDefault();
         const citaNueva={
         mascota:mascota,
-        dueño:dueño,
+        duenio:duenio,
         fecha:fecha,
         hora:hora,
         sintomas:sintomas,
@@ -50,7 +50,7 @@ const Formulario = ({agregarCita})=>{
         <input type="text" name="mascota" class="u-full-width" placeholder="Nombre Mascota" value={mascota} onChange={MascotaOnChange}/>
 
         <label>Nombre Dueño</label>
-        <input type="text" name="propietario" class="u-full-width" placeholder="Nombre dueño de la mascota"  value={dueño} onChange={DuenoOnChange}/>
+        <input type="text" name="propietario" class="u-full-width" placeholder="Nombre dueño de la mascota"  value={duenio} onChange={DuenoOnChange}/>
 
         <label>Fecha</label>
         <input type="date" name="fecha" class="u-full-width" value={fecha} onChange={FechaOnChange}/>

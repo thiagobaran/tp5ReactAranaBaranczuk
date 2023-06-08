@@ -5,37 +5,38 @@ import SubTitulos from '../SubTitulos/SubTitulos';
 import './App.css';
 import { useState } from 'react';
 
+const random = () => Math.floor(Math.random() * 1000000000);
+
 function App() {
   let contador=0
-  let id=contador
   let mascota=''
-  let dueño=''
+  let duenio=''
   let fecha=''
   let hora=''
   let sintomas=''
 
   const [citas, setCitas] = useState([
     {
-      id:contador+1,
+      id: random(),
       mascota:'Nina',
-      dueño:'Martin',
+      duenio:'Martin',
       fecha:'2021-08-05',
       hora:'08:20',
       sintomas:'Le duele la pierna'
     },
       
     {
-      id:contador+1,
+      id:random(),
       mascota:'Sifon',
-      dueño:'Flecha',
+      duenio:'Flecha',
       fecha:'2023-08-05',
       hora:'09:24',
       sintomas:'Duerme mucho'
     },
     {
-      id:contador+1,
+      id:random(),
       mascota:'Floki',
-      dueño:'Ari',
+      duenio:'Ari',
       fecha:'2023-08-05',
       hora:'16:15',
       sintomas:'No está comiendo'
@@ -43,11 +44,16 @@ function App() {
   ]);
   
   const agregarCita = (citaAhora) => {
+    citaAhora.id = random();
     console.log(citaAhora)
     const agregar = [...citas,citaAhora]
     setCitas(agregar)
     console.log(citas)
   
+  }
+
+  const eliminarCita = (id) => {
+    setCitas(citas.filter(item => item.id !== id));
   }
 
   return (
@@ -63,8 +69,8 @@ function App() {
             <div class="one-half column">
             <SubTitulos tituloH2='Administra tus citas'/>
 
-            {citas.map(({citas})=>(
-              <Card mascota={citas.mascota} dueño={citas.dueño} fecha={citas.fecha} hora={citas.hora} sintomas={citas.sintomas}></Card>
+            {citas.map((cita)=>(
+              <Card eliminarCita={eliminarCita} id={cita.id} mascota={cita.mascota} duenio={cita.duenio} fecha={cita.fecha} hora={cita.hora} sintomas={cita.sintomas}></Card>
             ))}
             
             </div>
